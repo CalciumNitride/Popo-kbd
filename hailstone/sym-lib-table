@@ -1,0 +1,5 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "0-popo") (type "KiCad") (uri "${KIPRJMOD}/0-popo_parts_Library.pretty/0-popo.kicad_sym") (options "") (descr ""))
+	(lib (name "SCHLIB_AFA07-S08FCA-00_2026-08-27") (type "EasyEDA (JLCEDA) Std") (uri "${KIPRJMOD}/0-popo_parts_Library.pretty/SCHLIB_AFA07-S08FCA-00_2026-08-27.json") (options "") (descr ""))
+)
