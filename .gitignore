@@ -1,5 +1,7 @@
-popo_pcb/popo_pcb-backups
+*-backups/
 *.lck
 *.bak
 *.kicad_prl
-popo_pcb/fp-info-cache
+docs/private/
+.claude
+archive/
