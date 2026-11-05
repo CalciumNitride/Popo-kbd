@@ -24,6 +24,12 @@ VIEWS = {
 AUTO_MARGIN_MM = 3.0
 PT_PER_MM = 72 / 25.4
 
+MARK_COLOR = (1, 0, 1)
+# 全体図と拡大図で見た目の大きさを揃えるため、描画範囲の長辺に対する比で決める
+MARK_RADIUS_RATIO = 0.025
+MARK_WIDTH_RATIO = 0.004
+MARK_LABEL_RATIO = 0.04
+
 
 def parse_clip(text: str) -> tuple[float, float, float, float]:
     try:
@@ -31,6 +37,26 @@ def parse_clip(text: str) -> tuple[float, float, float, float]:
     except ValueError:
         raise argparse.ArgumentTypeError("--clip は X1,Y1,X2,Y2 (mm) の形式で指定する")
     return min(x1, x2), min(y1, y2), max(x1, x2), max(y1, y2)
+
+
+def parse_mark(text: str) -> tuple[tuple[float, ...], str]:
+    parts = text.split(",")
+    if len(parts) not in (3, 5):
+        raise argparse.ArgumentTypeError(
+            "--mark は X,Y,ラベル (円) か X1,Y1,X2,Y2,ラベル (矩形) の形式で指定する"
+        )
+    *nums, label = parts
+    try:
+        coords = tuple(float(v) for v in nums)
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"--mark の座標が数値ではない: {text}")
+    # PyMuPDF の組み込みフォントは ASCII 以外を描けない
+    if not all(0x20 <= ord(c) <= 0x7E for c in label):
+        raise argparse.ArgumentTypeError(f"--mark のラベルは ASCII の印字可能文字のみ: {label}")
+    if len(coords) == 4:
+        x1, y1, x2, y2 = coords
+        coords = (min(x1, x2), min(y1, y2), max(x1, x2), max(y1, y2))
+    return coords, label
 
 
 def parse_views(text: str) -> list[str]:
@@ -75,7 +101,42 @@ def drawings_bbox_pt(page: pymupdf.Page) -> pymupdf.Rect | None:
     return pymupdf.Rect(min(xs), min(ys), max(xs), max(ys))
 
 
-def render(pdf: Path, png: Path, clip_mm, dpi: int) -> None:
+def draw_marks(page: pymupdf.Page, clip: pymupdf.Rect, marks, view: str) -> None:
+    long_side = max(clip.width, clip.height)
+    radius = MARK_RADIUS_RATIO * long_side
+    width = MARK_WIDTH_RATIO * long_side
+    fontsize = MARK_LABEL_RATIO * long_side
+    for coords, label in marks:
+        pts = [v * PT_PER_MM for v in coords]
+        if len(pts) == 2:
+            cx, cy = pts
+            shape_rect = pymupdf.Rect(cx - radius, cy - radius, cx + radius, cy + radius)
+        else:
+            shape_rect = pymupdf.Rect(*pts)
+        if not shape_rect.intersects(clip):
+            sys.stderr.write(f"警告: 印 {label} ({','.join(f'{v:g}' for v in coords)}) が"
+                             f" {view} の描画範囲外\n")
+
+        shape = page.new_shape()
+        if len(pts) == 2:
+            shape.draw_circle(pymupdf.Point(cx, cy), radius)
+        else:
+            shape.draw_rect(shape_rect)
+        shape.finish(color=MARK_COLOR, width=width, fill=None)
+
+        pad = fontsize * 0.15
+        text_w = pymupdf.get_text_length(label, fontname="hebo", fontsize=fontsize)
+        bg = pymupdf.Rect(shape_rect.x1, shape_rect.y0 - fontsize - 2 * pad,
+                          shape_rect.x1 + text_w + 2 * pad, shape_rect.y0)
+        shape.draw_rect(bg)
+        shape.finish(color=None, fill=(1, 1, 1), width=0)
+        # insert_text の位置はベースラインなので、ディセンダ分だけ下端から持ち上げる
+        shape.insert_text(pymupdf.Point(bg.x0 + pad, bg.y1 - pad - fontsize * 0.2), label,
+                          fontname="hebo", fontsize=fontsize, color=MARK_COLOR)
+        shape.commit()
+
+
+def render(pdf: Path, png: Path, clip_mm, dpi: int, marks, view: str) -> None:
     with pymupdf.open(pdf) as doc:
         page = doc[0]
         if clip_mm is not None:
@@ -87,6 +148,8 @@ def render(pdf: Path, png: Path, clip_mm, dpi: int) -> None:
             else:
                 m = AUTO_MARGIN_MM * PT_PER_MM
                 clip = pymupdf.Rect(bbox.x0 - m, bbox.y0 - m, bbox.x1 + m, bbox.y1 + m)
+        if marks:
+            draw_marks(page, clip, marks, view)
         pix = page.get_pixmap(dpi=dpi, clip=clip)
         pix.save(png)
 
@@ -100,6 +163,8 @@ def main() -> None:
     ap.add_argument("--clip", type=parse_clip, default=None,
                     help="切り抜き範囲 X1,Y1,X2,Y2 (KiCad 座標 mm)")
     ap.add_argument("--dpi", type=int, default=300)
+    ap.add_argument("--mark", type=parse_mark, action="append", default=[],
+                    help="印 X,Y,ラベル (円) / X1,Y1,X2,Y2,ラベル (矩形)。繰り返し指定可 (KiCad 座標 mm)")
     args = ap.parse_args()
 
     if not args.pcb.is_file():
@@ -110,13 +175,16 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=True)
     stem = args.pcb.stem
     suffix = "_clip" if args.clip is not None else ""
+    # 印なしの画像を上書きしないため
+    if args.mark:
+        suffix += "_mark"
 
     with tempfile.TemporaryDirectory() as tmp:
         for view in args.views:
             pdf = Path(tmp) / f"{stem}_{view}.pdf"
             export_pdf(kicad_cli, args.pcb, VIEWS[view], pdf)
             png = args.output / f"{stem}_{view}{suffix}.png"
-            render(pdf, png, args.clip, args.dpi)
+            render(pdf, png, args.clip, args.dpi, args.mark, view)
             print(png.resolve())
 
 

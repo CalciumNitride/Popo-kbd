@@ -34,7 +34,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_FFC-FPC:JUSHUO_AFA07-S08FCA-00_1x8-1MP_P1.0mm_Horizontal"
+		(property "Footprint" "0-popo_parts_Library:JUSHUO_AFC01-S08FCA-00_1x08-1MP_P0.5mm_Horizontal"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
