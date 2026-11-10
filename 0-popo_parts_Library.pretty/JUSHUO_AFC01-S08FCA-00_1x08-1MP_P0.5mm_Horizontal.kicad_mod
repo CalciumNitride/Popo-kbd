@@ -247,7 +247,7 @@
 		(roundrect_rratio 0.15625)
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/3dmodels/lcsc.3dshapes/FPC-SMD_P0.50-8P_FGS-XJ-H2.0.step"
+	(model "${KIPRJMOD}/../3dmodels/lcsc.3dshapes/FPC-SMD_P0.50-8P_FGS-XJ-H2.0.step"
 		(offset
 			(xyz 0 0.325 2)
 		)

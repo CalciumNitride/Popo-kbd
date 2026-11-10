@@ -244,7 +244,7 @@
 		(uuid "52d587f7-9605-4834-86b2-26a070ad36d5")
 	)
 	(embedded_fonts no)
-	(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+	(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 		(offset
 			(xyz 0 0 -1.7)
 		)

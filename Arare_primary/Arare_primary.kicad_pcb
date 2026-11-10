@@ -1029,7 +1029,7 @@
 			(uuid "eecc7413-0d92-42f7-8c29-8b93fe99337f")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/lcsc.3dshapes/USB-C_SMD-TYPE-C-31-M-12_1.step"
+		(model "${KIPRJMOD}/../3dmodels/lcsc.3dshapes/USB-C_SMD-TYPE-C-31-M-12_1.step"
 			(offset
 				(xyz 0 -1 0)
 			)
@@ -1564,7 +1564,7 @@
 			(uuid "e39d4c4b-86f6-4bd5-b1bf-9908efa015d9")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/lcsc.3dshapes/FPC-SMD_P0.50-8P_FGS-XJ-H2.0.step"
+		(model "${KIPRJMOD}/../3dmodels/lcsc.3dshapes/FPC-SMD_P0.50-8P_FGS-XJ-H2.0.step"
 			(offset
 				(xyz 0 0.325 2)
 			)
@@ -2648,7 +2648,7 @@
 			(uuid "d54b17ad-a086-49d2-8021-9ccc006bfc4b")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -2924,7 +2924,7 @@
 			(uuid "8263c687-5f56-4371-9d56-3e0398045103")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -3200,7 +3200,7 @@
 			(uuid "65f8dd02-af97-4b20-b5d2-6090b46265a6")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -3476,7 +3476,7 @@
 			(uuid "60e51e49-b7f4-4862-a68f-907c0ba66b88")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -3752,7 +3752,7 @@
 			(uuid "51719aee-b1fa-49ed-a0e9-dc7949b83adf")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -4223,7 +4223,7 @@
 			(uuid "f9157b1c-3c44-4217-80ba-d7aa57b36553")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -4499,7 +4499,7 @@
 			(uuid "b117d7a8-643e-4f8e-91e1-2c9a476da108")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -5163,7 +5163,7 @@
 			(uuid "31722ff8-e71e-4c59-9fc9-7dcd7b516a3d")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -6024,7 +6024,7 @@
 			(uuid "287a8a1e-c694-45b6-8839-e64dcd9cf10e")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -6630,7 +6630,7 @@
 			(uuid "a8ad21d1-563a-4d74-a6e8-c3d9c22aac60")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -7101,7 +7101,7 @@
 			(uuid "0e106703-e9cf-4c8e-9a27-a0529a4d3e81")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -7573,7 +7573,7 @@
 			(uuid "f91f7351-e643-4107-b297-e8b9928eb360")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -7849,7 +7849,7 @@
 			(uuid "337d4c92-ffa3-4ff2-8e7f-f602654efd71")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -10551,7 +10551,7 @@
 			(uuid "1f56ae9f-27ed-4b6d-929b-68d472359159")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -11022,7 +11022,7 @@
 			(uuid "9507bc88-a337-4508-996a-2cb6df08f040")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -11501,7 +11501,7 @@
 			(uuid "32f19927-adea-4c0a-89fd-e2f5c447fc49")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/lcsc.3dshapes/USB-C_SMD-TYPE-C-31-M-12_1.step"
+		(model "${KIPRJMOD}/../3dmodels/lcsc.3dshapes/USB-C_SMD-TYPE-C-31-M-12_1.step"
 			(offset
 				(xyz 0 -1 0)
 			)
@@ -11777,7 +11777,7 @@
 			(uuid "beeb518f-ce5c-4f67-aedb-c87567ea5dec")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -12054,7 +12054,7 @@
 			(uuid "9c8f2979-a751-461d-918d-46ac2ec40ff1")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
+		(model "${KIPRJMOD}/../3dmodels/SW_Hotswap_Kailh_Choc_V1.stp"
 			(offset
 				(xyz 0 0 -1.7)
 			)
@@ -13097,7 +13097,7 @@
 			(uuid "67ae3806-35fc-4ede-b975-fb91ed5b5040")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/lcsc.3dshapes/USON-8_L4.0-W3.0-H0.6-P0.80-BL_GD25Q32CNIGR.step"
+		(model "${KIPRJMOD}/../3dmodels/lcsc.3dshapes/USON-8_L4.0-W3.0-H0.6-P0.80-BL_GD25Q32CNIGR.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -13867,7 +13867,7 @@
 			(uuid "3f6c2273-e101-4024-ac8f-633d0226f93c")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/3dmodels/lcsc.3dshapes/FPC-SMD_P0.50-8P_FGS-XJ-H2.0.step"
+		(model "${KIPRJMOD}/../3dmodels/lcsc.3dshapes/FPC-SMD_P0.50-8P_FGS-XJ-H2.0.step"
 			(offset
 				(xyz 0 0.325 2)
 			)
